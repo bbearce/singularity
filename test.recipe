@@ -1,0 +1,22 @@
+Bootstrap: docker
+From: ubuntu:18.04
+
+%help
+    This is where you can add some useful info.
+
+%labels
+    Creator Ben
+
+%environment
+    export MY_VAR='~~~~~some environment variable~~~~~'
+
+%files
+    test.py   /
+
+%post
+    apt-get -qq -y update
+    apt-get -qq -y install python > /dev/null
+
+%runscript
+    python /test.py
+
